@@ -2,108 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yunru&#39;s blog</title>
-    <link>https://yunru-volknet.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on yunru&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://yunru-volknet.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a New Theme</title>
-      <link>https://yunru-volknet.github.io/posts/creating-a-new-theme/</link>
+      <link>http://localhost:1313/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/creating-a-new-theme/</guid>
+      <guid>http://localhost:1313/posts/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&#xA;We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://yunru-volknet.github.io/posts/goisforlovers/</link>
+      <link>http://localhost:1313/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/goisforlovers/</guid>
+      <guid>http://localhost:1313/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.&#xA;This document is a brief primer on using Go templates.</description>
     </item>
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://yunru-volknet.github.io/posts/hugoisforlovers/</link>
+      <link>http://localhost:1313/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/hugoisforlovers/</guid>
+      <guid>http://localhost:1313/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.&#xA;Save it somewhere specific as we will be using it in the next step.&#xA;More complete instructions are available at Install Hugo&#xA;Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.&#xA;Follow the following steps:&#xA;Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:</description>
     </item>
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://yunru-volknet.github.io/posts/migrate-from-jekyll/</link>
+      <link>http://localhost:1313/posts/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/migrate-from-jekyll/</guid>
+      <guid>http://localhost:1313/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like&#xA;▾ &amp;lt;root&amp;gt;/&#xD;▾ images/&#xD;logo.png&#xD;should become&#xA;▾ &amp;lt;root&amp;gt;/&#xD;▾ static/&#xD;▾ images/&#xD;logo.png&#xD;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     <item>
-      <title>Test 9</title>
-      <link>https://yunru-volknet.github.io/posts/test-9/</link>
-      <pubDate>Thu, 09 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-9/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut accumsan sem, imperdiet malesuada erat. Nam condimentum eu turpis a suscipit. Nulla leo arcu, feugiat ac orci eget, imperdiet posuere dui. In laoreet rutrum nisi vitae pretium. Aliquam id fermentum diam, et hendrerit mi. Praesent eget tristique augue. Donec a malesuada nulla, sit amet bibendum libero. Cras id eleifend enim.&#xA;You think you&amp;rsquo;ve got problems? What are you supposed to do if you are a manically depressed robot?</description>
-    </item>
-    <item>
-      <title>Test 8</title>
-      <link>https://yunru-volknet.github.io/posts/test-8/</link>
-      <pubDate>Wed, 08 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-8/</guid>
-      <description>Test 8</description>
-    </item>
-    <item>
-      <title>Test 7</title>
-      <link>https://yunru-volknet.github.io/posts/test-7/</link>
-      <pubDate>Tue, 07 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-7/</guid>
-      <description>Test 7</description>
-    </item>
-    <item>
-      <title>Test 6</title>
-      <link>https://yunru-volknet.github.io/posts/test-6/</link>
-      <pubDate>Mon, 06 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-6/</guid>
-      <description>Test 6</description>
-    </item>
-    <item>
-      <title>Test 5</title>
-      <link>https://yunru-volknet.github.io/posts/test-5/</link>
-      <pubDate>Sun, 05 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-5/</guid>
-      <description>Test 5</description>
-    </item>
-    <item>
-      <title>Test 4</title>
-      <link>https://yunru-volknet.github.io/posts/test-4/</link>
-      <pubDate>Sat, 04 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-4/</guid>
-      <description>Test 4</description>
-    </item>
-    <item>
-      <title>Test 3</title>
-      <link>https://yunru-volknet.github.io/posts/test-3/</link>
-      <pubDate>Fri, 03 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-3/</guid>
-      <description>Test 3</description>
-    </item>
-    <item>
-      <title>Test 2</title>
-      <link>https://yunru-volknet.github.io/posts/test-2/</link>
-      <pubDate>Thu, 02 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-2/</guid>
-      <description>Test 2</description>
-    </item>
-    <item>
-      <title>Test 1</title>
-      <link>https://yunru-volknet.github.io/posts/test-1/</link>
-      <pubDate>Wed, 01 Jan 1012 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/test-1/</guid>
-      <description>Test 1 I am referencing a footnote1&#xA;1package main 2 3import &amp;#34;fmt&amp;#34; 4 5func main() { 6 fmt.Println(&amp;#34;{linenos=inline}&amp;#34;) 7} 1 2 3 4 5 6 7 package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;{linenos=table}&amp;#34;) } Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in dictum tortor.&#xD;Morbi laoreet enim id sem euismod lobortis. Donec quam libero, bibendum non cursus vitae, dictum vel eros. I am the footnote&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+      <title></title>
+      <link>http://localhost:1313/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</guid>
+      <description>2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了&#xA;#TH_curve ##题目&#xA;from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &amp;gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.</description>
     </item>
     <item>
       <title>About</title>
-      <link>https://yunru-volknet.github.io/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacinia lorem quis sodales auctor. Donec bibendum odio leo, bibendum iaculis lectus dapibus sit amet. Etiam ut euismod lectus, vel finibus metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer quis vestibulum justo. Duis scelerisque ullamcorper sem, eget congue lorem ultrices mattis. Nam ut mollis tellus, id facilisis turpis. Duis ac egestas mi, a mattis dolor. Curabitur vestibulum est nec tortor hendrerit, vehicula malesuada quam tempor.</description>
     </item>
   </channel>
