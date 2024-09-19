@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title> // yunru&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
@@ -22,7 +22,7 @@
 #TH_curve ##题目
 from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
 
-    <meta property="og:url" content="http://localhost:1313/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/">
+    <meta property="og:url" content="https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/">
   <meta property="og:site_name" content="yunru&#39;s blog">
   <meta property="og:title" content="yunru&#39;s blog">
   <meta property="og:description" content="2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了
@@ -31,12 +31,12 @@ from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): 
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   </head>
   <body>
     <header class="app-header">
-      <a href="http://localhost:1313/"><img class="app-header-avatar" src="/avatar.jpg" alt="yunru" /></a>
+      <a href="https://yunru-volknet.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="yunru" /></a>
       <span class="app-header-title">yunru&#39;s blog</span>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/">主页</a>
