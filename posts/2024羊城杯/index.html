@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title> // yunru&#39;s blog</title>
+    <title>2024羊城杯 // yunru&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.128.2">
@@ -17,20 +17,22 @@
 
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="yunru&#39;s blog">
+  <meta name="twitter:title" content="2024羊城杯">
   <meta name="twitter:description" content="2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了
 #TH_curve ##题目
 from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
 
     <meta property="og:url" content="https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/">
   <meta property="og:site_name" content="yunru&#39;s blog">
-  <meta property="og:title" content="yunru&#39;s blog">
+  <meta property="og:title" content="2024羊城杯">
   <meta property="og:description" content="2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了
 #TH_curve ##题目
 from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-20T00:28:18+08:00">
+    <meta property="article:modified_time" content="2024-09-20T00:28:18+08:00">
 
 
   </head>
@@ -70,14 +72,14 @@ from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): 
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title"></h1>
+      <h1 class ="post-title">2024羊城杯</h1>
       <div class="post-meta">
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Jan 1, 0001
+          Sep 20, 2024
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -374,57 +376,59 @@ b,c的数值并不大，可以直接爆破出来(或许有不那么暴力的方�
 看到newm时第一时间想到了是m &lt; n的情形，然后尝试爆破了一下newm+k*n没出来
 然后现在是复现的<del>呜呜呜</del>
 其实这个格子和背包密码那个格子基本一样，参考一下就好了</p>
+<p><strong>注：以下 分析 部分的代码均为latex，请自行找个latex编辑器查看</strong></p>
 <p>设 pre = b&rsquo;DASCTF{&rsquo;,suf = b&rsquo;}'
-newm = c = 256 ^{(le?7)}?pre + 256?m_0 + suf
-意识到这个题目满足以下式子</p>
-<p>m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *s_i (mod \quad p)</p>
-<p>构造如下一个格子</p>
-<p>latex
+newm = c = 256 ^{(le−7)}∗pre + 256∗m_0 + suf</p>
+<p>意识到这个题目满足以下式子</p>
+<pre tabindex="0"><code>latex
+m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *s_i (mod \quad p)
+</code></pre><p>构造如下一个格子</p>
+<pre tabindex="0"><code>latex
 M0 =
 \begin{pmatrix}
-1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \
-&amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \
-&amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \
-&amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \
-&amp;   &amp;        &amp;   &amp; 1 &amp;  -m_0        \
-&amp;   &amp;        &amp;   &amp;   &amp;  n            \
-\end{pmatrix}</p>
-<p>然后有如下的式子可以获得我们的目标向量，由于长度le未知所以我们需要进行爆破(爆破这个长度的范围)</p>
-<p>latex
-(s_0,s_1,\dots ,s_{le-9},1,k) * M = (s_0,s_1,\dots ,s_{le-9},1,0)</p>
-<p>这样并没有成功爆破出正确答案，所以考虑进行优化
+1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \\
+  &amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \\
+  &amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \\
+  &amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \\
+  &amp;   &amp;        &amp;   &amp; 1 &amp;  -m_0        \\
+  &amp;   &amp;        &amp;   &amp;   &amp;  n            \\
+\end{pmatrix}
+</code></pre><p>然后有如下的式子可以获得我们的目标向量，由于长度le未知所以我们需要进行爆破(爆破这个长度的范围)</p>
+<pre tabindex="0"><code>latex
+(s_0,s_1,\dots ,s_{le-9},1,k) * M = (s_0,s_1,\dots ,s_{le-9},1,0)
+</code></pre><p>这样并没有成功爆破出正确答案，所以考虑进行优化
 注意到s_i的范围应该是[48,128],于是令r_i = s_i - 48
 对应的修改如下</p>
-<p>latex
-m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *(r_i + 48) (mod \quad p)</p>
-<p>latex
+<pre tabindex="0"><code>latex
+m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *(r_i + 48) (mod \quad p)
+</code></pre><pre tabindex="0"><code>latex
 M1 =
 \begin{pmatrix}
-1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \
-&amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \
-&amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \
-&amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \
-&amp;   &amp;        &amp;   &amp; 1 &amp;  -(m_0-{\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *40)        \
-&amp;   &amp;        &amp;   &amp;   &amp;  n            \
-\end{pmatrix}</p>
-<p>这样仍然没有爆破出来于是进行了第二次优化
+1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \\
+  &amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \\
+  &amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \\
+  &amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \\
+  &amp;   &amp;        &amp;   &amp; 1 &amp;  -(m_0-{\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *40)        \\
+  &amp;   &amp;        &amp;   &amp;   &amp;  n            \\
+\end{pmatrix}
+</code></pre><p>这样仍然没有爆破出来于是进行了第二次优化
 注意到r_i的范围应该是[0,80]
 令t_i = r_i - 40
 则t_i 范围[-40,40]</p>
-<p>latex
-m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *(t_i + 48 + 40) (mod \quad p)</p>
-<p>latex
+<pre tabindex="0"><code>latex
+m_0 = {\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i *(t_i + 48 + 40) (mod \quad p)
+</code></pre><pre tabindex="0"><code>latex
 M2 =
 \begin{pmatrix}
-1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \
-&amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \
-&amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \
-&amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \
-&amp;   &amp;        &amp;   &amp; 1 &amp;  -(m_0-{\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i * (40 + 48)) \
-&amp;   &amp;        &amp;   &amp;   &amp;  n            \
-\end{pmatrix}</p>
-<p>这样就求解成功了，这个优化是真的长知识了
-##exp
+1 &amp;   &amp;        &amp;   &amp;   &amp;  256^0   \\
+  &amp; 1 &amp;        &amp;   &amp;   &amp;  256^1    \\
+  &amp;   &amp; \ddots &amp;   &amp;   &amp;  \vdots    \\
+  &amp;   &amp;        &amp; 1 &amp;   &amp;  256^{le-9} \\
+  &amp;   &amp;        &amp;   &amp; 1 &amp;  -(m_0-{\textstyle \sum_{i = 1}^{le-7-1-1}} 256^i * (40 + 48)) \\
+  &amp;   &amp;        &amp;   &amp;   &amp;  n            \\
+\end{pmatrix}
+</code></pre><p>这样就求解成功了，这个优化是真的长知识了</p>
+<p>##exp
 是二次优化之后的哈</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>

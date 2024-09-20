@@ -6,8 +6,15 @@
     <description>Recent content in Posts on yunru&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 00:28:18 +0800</lastBuildDate>
     <atom:link href="https://yunru-volknet.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024羊城杯</title>
+      <link>https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</link>
+      <pubDate>Fri, 20 Sep 2024 00:28:18 +0800</pubDate>
+      <guid>https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</guid>
+      <description>2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了&#xA;#TH_curve ##题目&#xA;from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &amp;gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.</description>
+    </item>
     <item>
       <title>Creating a New Theme</title>
       <link>https://yunru-volknet.github.io/posts/creating-a-new-theme/</link>
@@ -35,13 +42,6 @@
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       <guid>https://yunru-volknet.github.io/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like&#xA;▾ &amp;lt;root&amp;gt;/&#xD;▾ images/&#xD;logo.png&#xD;should become&#xA;▾ &amp;lt;root&amp;gt;/&#xD;▾ static/&#xD;▾ images/&#xD;logo.png&#xD;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/</guid>
-      <description>2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了&#xA;#TH_curve ##题目&#xA;from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &amp;gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.</description>
     </item>
   </channel>
 </rss>
