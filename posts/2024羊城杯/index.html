@@ -19,15 +19,13 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="2024羊城杯">
   <meta name="twitter:description" content="2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了
-#TH_curve ##题目
-from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
+TH_curve 题目 from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
 
     <meta property="og:url" content="https://yunru-volknet.github.io/posts/2024%E7%BE%8A%E5%9F%8E%E6%9D%AF/">
   <meta property="og:site_name" content="yunru&#39;s blog">
   <meta property="og:title" content="2024羊城杯">
   <meta property="og:description" content="2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了
-#TH_curve ##题目
-from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
+TH_curve 题目 from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): if P == (0, 0): return Q if Q == (0, 0): return P x1, y1 = P x2, y2 = Q x3 = (x1 - y1 ** 2 * x2 * y2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p y3 = (y1 * y2 ** 2 - a * x1 ** 2 * x2) * pow(a * x1 * y1 * x2 ** 2 - y2, -1, p) % p return x3, y3 def mul_THcurve(n, P): R = (0, 0) while n &gt; 0: if n % 2 == 1: R = add_THcurve(R, P) P = add_THcurve(P, P) n = n // 2 return R p = 10297529403524403127640670200603184608844065065952536889 a = 2 G = (8879931045098533901543131944615620692971716807984752065, 4106024239449946134453673742202491320614591684229547464) FLAG = flag.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -92,8 +90,8 @@ from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): 
     </header>
     <div class="post-content">
       <p>2024羊城杯，这次学到了很多新东西，但是先知社区发晚了，就放这里了</p>
-<p>#TH_curve
-##题目</p>
+<h1 id="th_curve">TH_curve</h1>
+<h2 id="题目">题目</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> secret <span style="color:#f92672">import</span> flag
 </span></span><span style="display:flex;"><span>
@@ -131,8 +129,8 @@ from Crypto.Util.number import * from secret import flag def add_THcurve(P, Q): 
 </span></span><span style="display:flex;"><span>Q <span style="color:#f92672">=</span> mul_THcurve(m, G)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Q =&#34;</span>, Q)
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Q = (6784278627340957151283066249316785477882888190582875173, 6078603759966354224428976716568980670702790051879661797)</span>
-</span></span></code></pre></div><p>##分析
-注意到</p>
+</span></span></code></pre></div><h2 id="分析">分析</h2>
+<p>注意到</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_THcurve</span>(P, Q):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> P <span style="color:#f92672">==</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Q
@@ -157,8 +155,8 @@ y&rsquo;=Y/Z
 a<em>x&rsquo;^3+y&rsquo;^3+z&rsquo;^3=d</em>x&rsquo;*y&rsquo;*z'</p>
 <p>这样构造出了齐次式子之后就可以构造椭圆曲线了</p>
 <p>构造完成之后就是ecdlp
-听佬们说还有一种解法是把这个th_curve转换成Weierstrass型曲线（就是最常见的y^2 = x^3 + a*x + b）然后后面就一样了，有兴趣的师傅可以尝试一下
-##exp</p>
+听佬们说还有一种解法是把这个th_curve转换成Weierstrass型曲线（就是最常见的y^2 = x^3 + a*x + b）然后后面就一样了，有兴趣的师傅可以尝试一下</p>
+<h2 id="exp">exp</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">10297529403524403127640670200603184608844065065952536889</span>
@@ -189,8 +187,8 @@ a<em>x&rsquo;^3+y&rsquo;^3+z&rsquo;^3=d</em>x&rsquo;*y&rsquo;*z'</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>num2 <span style="color:#f92672">=</span> Pohlig_Hellman(P_ord,P,Q)
 </span></span><span style="display:flex;"><span>print(long_to_bytes(num2))
-</span></span></code></pre></div><p>#babycruve
-##题目</p>
+</span></span></code></pre></div><h1 id="babycruve">babycruve</h1>
+<h2 id="题目-1">题目</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: UTF-8 -*-</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
@@ -255,12 +253,8 @@ a<em>x&rsquo;^3+y&rsquo;^3+z&rsquo;^3=d</em>x&rsquo;*y&rsquo;*z'</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># G = (584273268656071313022845392380 : 105970580903682721429154563816 : 1)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># P = (401055814681171318348566474726 : 293186309252428491012795616690 : 1)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># data = {&#39;iv&#39;: &#39;bae1b42f174443d009c8d3a1576f07d6&#39;, &#39;cipher&#39;: &#39;ff34da7a65854ed75342fd4ad178bf577bd622df9850a24fd63e1da557b4b8a4&#39;}</span>
-</span></span></code></pre></div><p>##分析
-b,c的数值并不大，可以直接爆破出来(或许有不那么暴力的方法，但是我没想到)
-爆破完了之后就是dlp问题，直接dlog就可以得到k
-然后把k套进去aes里面就得到了flag
-##exp
-爆破b,c</p>
+</span></span></code></pre></div><h4 id="exp-1">exp</h4>
+<p>爆破b,c</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">46</span>
 </span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
 </span></span><span style="display:flex;"><span>p1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">826100030683243954408990060837</span>
@@ -351,8 +345,8 @@ b,c的数值并不大，可以直接爆破出来(或许有不那么暴力的方�
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Decrypted message:&#34;</span>, decrypted_message<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;UTF-8&#39;</span>))
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Decryption failed.&#34;</span>)
-</span></span></code></pre></div><p>#RSAloss
-##题目</p>
+</span></span></code></pre></div><h1 id="rsaloss">RSAloss</h1>
+<h2 id="题目-2">题目</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gmpy2 <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> getPrime(<span style="color:#ae81ff">100</span>)
@@ -372,8 +366,8 @@ b,c的数值并不大，可以直接爆破出来(或许有不那么暴力的方�
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># p = 898278915648707936019913202333</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># q = 814090608763917394723955024893</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># newm = b&#39;X\xee\x1ey\x88\x01dX\xf6i\x91\x80h\xf4\x1f!\xa7&#34;\x0c\x9a\x06\xc8\x06\x81\x15&#39;</span>
-</span></span></code></pre></div><p>##分析
-看到newm时第一时间想到了是m &lt; n的情形，然后尝试爆破了一下newm+k*n没出来
+</span></span></code></pre></div><h2 id="分析-1">分析</h2>
+<p>看到newm时第一时间想到了是m &lt; n的情形，然后尝试爆破了一下newm+k*n没出来
 然后现在是复现的<del>呜呜呜</del>
 其实这个格子和背包密码那个格子基本一样，参考一下就好了</p>
 <p><strong>注：以下 分析 部分的代码均为latex，请自行找个latex编辑器查看</strong></p>
@@ -428,8 +422,8 @@ M2 =
   &amp;   &amp;        &amp;   &amp;   &amp;  n            \\
 \end{pmatrix}
 </code></pre><p>这样就求解成功了，这个优化是真的长知识了</p>
-<p>##exp
-是二次优化之后的哈</p>
+<h2 id="exp-2">exp</h2>
+<p>是二次优化之后的哈</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>p1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">898278915648707936019913202333</span>
@@ -477,8 +471,8 @@ M2 =
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">#print(le)</span>
 </span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> newm
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># DASCTF{o0p5_m3ssaGe_to0_b1g_nv93nd0}</span>
-</span></span></code></pre></div><p>#TheoremPlus
-##题目</p>
+</span></span></code></pre></div><h1 id="theoremplus">TheoremPlus</h1>
+<h2 id="题目-3">题目</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gmpy2 <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> secret <span style="color:#f92672">import</span> flag
@@ -509,8 +503,8 @@ M2 =
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">n = 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">c = 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span></code></pre></div><p>##分析
-首先看到这里</p>
+</span></span></code></pre></div><h2 id="分析-2">分析</h2>
+<p>首先看到这里</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_e</span>(e):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> e <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
 </span></span><span style="display:flex;"><span>        mul <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
@@ -530,8 +524,8 @@ M2 =
 否则为0
 为0的原因:如果e不是素数那就一定是A1<em>X1+……+An</em>Xn的格式，且这{A1,……,An}{X1,……Xn}都 &lt;= e-1
 可以被(e-1)!整除，所以必然为0
-也就是说这道题目生成的e就是小于输入的e的素数的个数，使用prime_pi即可得到e,然后进行费马分解就可以得到flag
-##exp</p>
+也就是说这道题目生成的e就是小于输入的e的素数的个数，使用prime_pi即可得到e,然后进行费马分解就可以得到flag</p>
+<h2 id="exp-3">exp</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Crypto.Util.number <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gmpy2 <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#获取e</span>
