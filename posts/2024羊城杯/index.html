@@ -253,7 +253,9 @@ a<em>x&rsquo;^3+y&rsquo;^3+z&rsquo;^3=d</em>x&rsquo;*y&rsquo;*z'</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># G = (584273268656071313022845392380 : 105970580903682721429154563816 : 1)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># P = (401055814681171318348566474726 : 293186309252428491012795616690 : 1)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># data = {&#39;iv&#39;: &#39;bae1b42f174443d009c8d3a1576f07d6&#39;, &#39;cipher&#39;: &#39;ff34da7a65854ed75342fd4ad178bf577bd622df9850a24fd63e1da557b4b8a4&#39;}</span>
-</span></span></code></pre></div><h4 id="exp-1">exp</h4>
+</span></span></code></pre></div><h2 id="分析-1">分析</h2>
+<p>爆破一下得到b,c然后就是常规的dlp</p>
+<h2 id="exp-1">exp</h2>
 <p>爆破b,c</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">46</span>
 </span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
@@ -366,7 +368,7 @@ a<em>x&rsquo;^3+y&rsquo;^3+z&rsquo;^3=d</em>x&rsquo;*y&rsquo;*z'</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># p = 898278915648707936019913202333</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># q = 814090608763917394723955024893</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># newm = b&#39;X\xee\x1ey\x88\x01dX\xf6i\x91\x80h\xf4\x1f!\xa7&#34;\x0c\x9a\x06\xc8\x06\x81\x15&#39;</span>
-</span></span></code></pre></div><h2 id="分析-1">分析</h2>
+</span></span></code></pre></div><h2 id="分析-2">分析</h2>
 <p>看到newm时第一时间想到了是m &lt; n的情形，然后尝试爆破了一下newm+k*n没出来
 然后现在是复现的<del>呜呜呜</del>
 其实这个格子和背包密码那个格子基本一样，参考一下就好了</p>
@@ -503,7 +505,7 @@ M2 =
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">n = 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">c = 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span></code></pre></div><h2 id="分析-2">分析</h2>
+</span></span></code></pre></div><h2 id="分析-3">分析</h2>
 <p>首先看到这里</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_e</span>(e):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> e <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
