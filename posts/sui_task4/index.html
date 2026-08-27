@@ -1,0 +1,171 @@
+<!doctype html><html lang=zh-CN data-ui-theme=tactical><head><title>sui_task4 // YUNRU // FOEHN ARCHIVE</title>
+<link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.128.2"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#050a0f"><meta name=author content="yunru"><meta name=description content><script>(function(){try{var e=localStorage.getItem("foehn-ui-theme");(e==="tactical"||e==="mecha")&&document.documentElement.setAttribute("data-ui-theme",e)}catch{}})()</script><link rel=stylesheet href=/css/main.min.14a1fa02abbe4923b4e0250bbd3d5fd79da9a8177c81d8af4df3ff687e62fd42.css><meta name=twitter:card content="summary"><meta name=twitter:title content="sui_task4"><meta name=twitter:description content="看题目 game package id : 这个上上期讲过了 deposit Coin hash: 存款hash，所以需要一个存款方法 withdraw Coin hash: 提款ha"><meta property="og:url" content="https://yunru-volknet.github.io/posts/sui_task4/"><meta property="og:site_name" content="YUNRU // FOEHN ARCHIVE"><meta property="og:title" content="sui_task4"><meta property="og:description" content="看题目 game package id : 这个上上期讲过了 deposit Coin hash: 存款hash，所以需要一个存款方法 withdraw Coin hash: 提款ha"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-11-20T16:22:46+08:00"><meta property="article:modified_time" content="2024-11-20T16:22:46+08:00"></head><body><a class=skip-link href=#main-content>跳转到主要内容</a><div class=ambient-grid aria-hidden=true></div><div class=ambient-scanline aria-hidden=true></div><div class=mecha-frame aria-hidden=true><span class=mecha-frame-top></span>
+<span class=mecha-frame-right></span>
+<span class=mecha-frame-bottom></span>
+<span class=mecha-frame-left></span></div><header class=app-header><div class=sidebar-grid aria-hidden=true></div><div class=faction-id><span class=faction-id-mark></span>
+<span>FOEHN REVOLT</span>
+<span class=faction-id-code>FN-07</span></div><a class=app-header-emblem href=/ aria-label=返回档案终端><span class=emblem-orbit aria-hidden=true></span>
+<img class=app-header-avatar src=/avartar.jpg alt=焚风阵营标志></a><div class=brand-lockup><span class=app-header-title>YUNRU // FOEHN ARCHIVE</span>
+<span class=app-header-subtitle>MENTAL OMEGA / TACTICAL KNOWLEDGE NODE</span></div><nav class=app-header-menu aria-label=主导航><a class=app-header-menu-item href=/><span class=menu-index>01</span>
+<span>档案终端</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg>
+</a><a class=app-header-menu-item href=/tags/><span class=menu-index>02</span>
+<span>数据索引</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg>
+</a><a class=app-header-menu-item href=/about/><span class=menu-index>03</span>
+<span>节点信息</span><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg></a></nav><div class=ui-selector><span class=ui-selector-label>INTERFACE LOADOUT / 界面方案</span><div class=ui-selector-options role=group aria-label=选择博客界面风格><button type=button data-theme-option=tactical aria-pressed=true>
+<span>01</span><strong>战术终端</strong>
+</button>
+<button type=button data-theme-option=mecha aria-pressed=false>
+<span>02</span><strong>机甲驾驶舱</strong></button></div></div><p class=app-header-description>记录代码、密码学与链上攻防的焚风技术档案。</p><div class=app-header-social><a href=https://github.com/yunru-volknet target=_blank rel="noreferrer noopener me" aria-label="GitHub / yunru-volknet"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>GitHub / yunru-volknet</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+<span>GitHub / yunru-volknet</span></a></div><div class=sidebar-status aria-label=系统状态><div><span class=status-pulse></span> ARCHIVE NODE ONLINE</div><div><span>ENCRYPTION</span><strong>QUANTUM / ACTIVE</strong></div><div><span>ACCESS</span><strong>FIELD OPERATIVE</strong></div></div></header><div class=app-main><div class=command-bar><span class=command-route><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-terminal"><title>terminal</title><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> NODE://POSTS</span>
+<span class=command-interface>UI://<strong id=ui-mode-label>TACTICAL TERMINAL</strong></span>
+<span class=command-sync><span class=status-pulse></span> DATA LINK STABLE</span></div><main id=main-content class=app-container><article class=post><header class=post-header><a class=post-backlink href=/><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-arrow-left"><title>arrow-left</title><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> 返回档案终端</a>
+<span class=section-code>INTELLIGENCE RECORD / BCC6F945</span><h1 class=post-title>sui_task4</h1><div class=post-meta><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+<span>记录日期</span><strong>2024.11.20</strong></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>预计读取</span><strong>4 MIN</strong></div></div></header><div class=post-content><div class=content-clearance><span>SECURITY CLEARANCE</span><strong>AUTHORIZED</strong></div><h1 id=看题目>看题目</h1><p>game package id :
+这个上上期讲过了</p><h2 id=deposit-coin-hash>deposit Coin hash:</h2><p>存款hash，所以需要一个存款方法</p><h2 id=withdraw-coin-hash>withdraw <code>Coin</code> hash:</h2><p>提款hash，所以需要一个提款方法</p><h2 id=play-game-hash>play game hash:</h2><p>就是client交互合约的hash(没有play函数怎么办?写喽，难道有一种游戏是可以看但是不能玩的?)</p><h2 id=结论>结论</h2><p>需要做的game需要有存款，提款，play_game三个功能，然后既然有存款和提款，那玩游戏时也可以有一个赢了得到coin，输了失去coin的逻辑
+如果有这么一个功能的话那就需要一个资金池实现赢了从池子里提钱，输了把钱传进池子里，存款和提款也一起在这个资金池实现</p><h1 id=前置知识>前置知识</h1><p>balance和coin的区别
+在sui里面coin是一种对象，不止有面额还有一个id,balance只有面额没有id，可以看作coin是纸币，然后balance是账本上的数额(支付宝的数字)，在存钱的时候用balance就不用存储多一个id的值，应该能减少一些存储成本
+存钱时可以使用</p><h1 id=game>game</h1><h2 id=思路>思路</h2><p>这个task就分为两个部分一个是游戏逻辑，另一个是代币存取
+个人感觉难点在于如何实现代币的存取</p><h3 id=游戏思路>游戏思路</h3><p>这里选择了最古老的游戏模式之一——剪刀石头布
+分别以0，1，2代指石头,剪刀,布(本来应该是5，2，0代指布，剪刀，石头的，但是我忘记了QAQ)
+所以就在看电脑随机的选择和自己的选择，如果赢了就reward，输了就失去代币</p><pre tabindex=0><code>public entry fun Play(game: &amp;mut Game, rnd: &amp;Random, choice: u8, coin: &amp;mut Coin&lt;FAUCET_COIN&gt;, amount: u64, ctx: &amp;mut TxContext) {
+        assert!(game.balance.value() &gt;= amount, EGameInsufficientBalance);
+        assert!(coin.value() &gt;= amount, EUserInsufficientBalance);
+
+        let mut rand = random::new_generator(rnd, ctx);    
+        let ComputerChoice = random::generate_u8(&amp;mut rand) % 3;
+
+        if (
+            (choice == 0 &amp;&amp; ComputerChoice == 1)
+            || (choice == 1 &amp;&amp; ComputerChoice == 2)
+            || (choice == 2 &amp;&amp; ComputerChoice == 0)
+        ) {
+            //win,you will get reward
+            let reward = coin::take(&amp;mut game.balance, amount, ctx);
+            coin.join(reward);
+        } else if (choice == ComputerChoice) {
+            //draw,nothing happen
+        } else {
+            //lose,lose your coin
+            Self::deposit(game, coin, amount,ctx)
+        };
+    }
+</code></pre><p>然后获胜的奖励和失败的惩罚也放在下面代币存取一块说(平局最简单，直接无事发生就好了)</p><h3 id=faucet_coin存取>faucet_coin存取</h3><p>这里就得学习一下官方文档了
+官方文档的链接(使用到的函数的源码都复制在下面了)
+<a href=https://docs.sui.io/references/framework/sui-framework/balance>https://docs.sui.io/references/framework/sui-framework/balance</a>
+<a href=https://docs.sui.io/references/framework/sui-framework/coin>https://docs.sui.io/references/framework/sui-framework/coin</a></p><p>这里选择了把coin存为balance，然后取出coin的时候再生成一个新的coin</p><h4 id=所用到的一些函数>所用到的一些函数</h4><pre tabindex=0><code>/**调用*/
+    use sui::coin::{Self, Coin};
+    use sui::balance::{Self, Balance};
+</code></pre><p>分离balance使用
+balance::split</p><pre tabindex=0><code>public fun split&lt;T&gt;(self: &amp;mut Balance&lt;T&gt;, value: u64): Balance&lt;T&gt; {
+    assert!(self.value &gt;= value, ENotEnough);
+    self.value = self.value - value;
+    Balance { value }
+}
+//self参数是传入的代币，这个函数可从self分离出一个值为value数额的balance
+</code></pre><p>传balance使用
+balance::join</p><pre tabindex=0><code>public fun join&lt;T&gt;(self: &amp;mut Balance&lt;T&gt;, balance: Balance&lt;T&gt;): u64 {
+    let Balance { value } = balance;
+    self.value = self.value + value;
+    self.value
+}
+</code></pre><p>生成coin使用
+coin::take</p><pre tabindex=0><code>public fun take&lt;T&gt;(balance: &amp;mut Balance&lt;T&gt;, value: u64, ctx: &amp;mut TxContext): Coin&lt;T&gt; {
+    Coin {
+        id: object::new(ctx),
+        balance: balance.split(value),
+    }
+}
+//取出balance并生成一个id组合成一个 coin对象
+</code></pre><p>奖励coin对象使用
+coin::join</p><pre tabindex=0><code>public entry fun join&lt;T&gt;(self: &amp;mut Coin&lt;T&gt;, c: Coin&lt;T&gt;) {
+    let Coin { id, balance } = c;
+    id.delete();
+    self.balance.join(balance);
+}
+/**
+注意：这里看同时传入self和c两个参数也就是把它id删除然后把balance传入到参数给出的coin对象的balance字段里面，也就是说coin的个数是没有增加的，但是面额变大了，老师说在合并对象时会返还一定的gas费，也就是说官方是乐意推动合并对象的，可能是因为减少了存储成本？有了解原因的大佬可以指导一下，感激不尽
+*/
+/**
+那到底怎么实现奖励coin呢？可以回去看一下我的task2文章有写到权限控制的一点知识点，这里是保证self对象是玩家私有的，在这种情况下joiin函数就能实现self对象的balance值增加，然后再结束游戏，这样就实现了奖励coin
+*/
+</code></pre><p>综上
+deposit使用balance::split和balance::join来实现
+withdraw使用coin::take和transfer实现
+最后获胜奖励函数用coin::take和coin::join实现
+然后失败的惩罚用deposit就好了，可复用性拉满了
+平局不用说吧？无事发生啦</p><h1 id=完整代码>完整代码</h1><pre tabindex=0><code>module game_520::rock_paper_scissors {
+    use sui::coin::{Self, Coin};
+    use sui::balance::{Self, Balance};
+    use sui::random::{Self, Random};
+    use faucet_coin::faucet_coin::FAUCET_COIN;
+
+    const EUserInsufficientBalance: u64 = 1000;
+    const EGameInsufficientBalance: u64 = 1001;
+
+
+    public struct Game has key {
+        id: UID,
+        balance: Balance&lt;FAUCET_COIN&gt;,
+        game_name:vector&lt;u8&gt;
+    }
+
+    public struct Admin has key {
+        id: UID,
+    }
+
+    fun init(ctx: &amp;mut TxContext){
+        // create game and share it
+        let game = Game{
+            id: object::new(ctx),
+            balance: balance::zero(),
+            game_name:b&#34;y_v&#39;s rock_paper_scissors GAME&#34;
+        };
+        transfer::share_object(game);
+
+        let admin = Admin {id: object::new(ctx)};
+        transfer::transfer(admin, ctx.sender());
+    }
+
+    public entry fun deposit(game: &amp;mut Game, coin: &amp;mut Coin&lt;FAUCET_COIN&gt;, amount: u64, ctx: &amp;mut TxContext) {
+        assert!(coin.value() &gt;= amount, EUserInsufficientBalance);
+        let split_balance = coin::balance_mut(coin).split(amount);
+        game.balance.join(split_balance);
+    }
+
+    public entry fun withdraw(game: &amp;mut Game, _: &amp;Admin, amount: u64, ctx: &amp;mut TxContext) {
+        assert!(game.balance.value() &gt;= amount, EGameInsufficientBalance);
+        let cash = coin::take(&amp;mut game.balance, amount, ctx);
+        transfer::public_transfer(cash, ctx.sender());
+    }
+
+    public entry fun Play(game: &amp;mut Game, rnd: &amp;Random, choice: u8, coin: &amp;mut Coin&lt;FAUCET_COIN&gt;, amount: u64, ctx: &amp;mut TxContext) {
+        assert!(game.balance.value() &gt;= amount, EGameInsufficientBalance);
+        assert!(coin.value() &gt;= amount, EUserInsufficientBalance);
+
+        let mut rand = random::new_generator(rnd, ctx);    
+        let ComputerChoice = random::generate_u8(&amp;mut rand) % 3;
+
+        if (
+            (choice == 0 &amp;&amp; ComputerChoice == 1)
+            || (choice == 1 &amp;&amp; ComputerChoice == 2)
+            || (choice == 2 &amp;&amp; ComputerChoice == 0)
+        ) {
+            //win,you will get reward
+            let reward = coin::take(&amp;mut game.balance, amount, ctx);
+            coin.join(reward);
+        } else if (choice == ComputerChoice) {
+            //draw,nothing happen
+        } else {
+            //lose,lose your coin
+            Self::deposit(game, coin, amount,ctx)
+        };
+    }
+
+}
+</code></pre><h1 id=一些可能踩到的坑>一些可能踩到的坑</h1><pre tabindex=0><code>Failed to publish the Move module(s), reason: Package dependency &#34;faucet_coin&#34; does not specify a published address (the Move.toml manifest for &#34;faucet_coin&#34; does not contain a &#39;published-at&#39; field, nor is there a &#39;published-id&#39; in the Move.lock).
+If this is intentional, you may use the --with-unpublished-dependencies flag to continue publishing these dependencies as part of your package (they won&#39;t be linked against existing packages on-chain).
+</code></pre><p>如果在部署到测试网时出现这个报错说明那个faucet_coin包部署在主网以至于无法找到对应依赖，可以写一个一样的faucet_coin部署到测试网然后再进行测试，或者能找到之前在测试网部署的包也行</p></div><div class=post-footer></div></article></main><footer class=app-footer><span>FOEHN ARCHIVE SYSTEM</span>
+<span>© 2026 YUNRU / ALL SIGNALS RECORDED</span></footer></div><script>(function(){var e=document.documentElement,t=document.querySelectorAll("[data-theme-option]"),n=document.getElementById("ui-mode-label");function s(s,o){var i=s==="mecha"?"mecha":"tactical";if(e.setAttribute("data-ui-theme",i),t.forEach(function(e){e.setAttribute("aria-pressed",String(e.getAttribute("data-theme-option")===i))}),n&&(n.textContent=i==="mecha"?"MECHA COCKPIT":"TACTICAL TERMINAL"),o)try{localStorage.setItem("foehn-ui-theme",i)}catch{}}t.forEach(function(e){e.addEventListener("click",function(){s(e.getAttribute("data-theme-option"),!0)})}),s(e.getAttribute("data-ui-theme"),!1)})()</script></body></html>
