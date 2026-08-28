@@ -1,296 +1,130 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>(Hu)go Template Primer // yunru&#39;s blog</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.128.2">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="yunru" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="/css/main.min.562871a81790ee61fbc41ddb89eacf3bc0967ee9bde46cf8764c66fe91f0e6fc.css" />
-    
-
-    
-  
-
-
-    
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="(Hu)go Template Primer">
-  <meta name="twitter:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.">
-
-    <meta property="og:url" content="https://yunru-volknet.github.io/posts/goisforlovers/">
-  <meta property="og:site_name" content="yunru&#39;s blog">
-  <meta property="og:title" content="(Hu)go Template Primer">
-  <meta property="og:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2014-04-02T00:00:00+00:00">
-    <meta property="article:modified_time" content="2014-04-02T00:00:00+00:00">
-    <meta property="article:tag" content="Go">
-    <meta property="article:tag" content="Golang">
-    <meta property="article:tag" content="Templates">
-    <meta property="article:tag" content="Themes">
-    <meta property="article:tag" content="Development">
-
-
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://yunru-volknet.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="yunru" /></a>
-      <span class="app-header-title">yunru&#39;s blog</span>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="/">主页</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/tags/">标签</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/about/">About</a>
-      </nav>
-      <p>Knowledge is power.</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/gohugoio" target="_blank" rel="noreferrer noopener me">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>Github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-          </a>
-        
-          <a href="https://twitter.com/gohugoio" target="_blank" rel="noreferrer noopener me">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
-  <title>Twitter</title>
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-</svg>
-          </a>
-        
-      </div>
-    </header>
-    <main class="app-container">
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">(Hu)go Template Primer</h1>
-      <div class="post-meta">
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          Apr 2, 2014
-        </div>
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          7 min read
-        </div>
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
-  <title>tag</title>
-  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
-</svg>
-              <a class="tag" href="https://yunru-volknet.github.io/tags/go/">Go</a>
-              <a class="tag" href="https://yunru-volknet.github.io/tags/golang/">Golang</a>
-              <a class="tag" href="https://yunru-volknet.github.io/tags/templates/">Templates</a>
-              <a class="tag" href="https://yunru-volknet.github.io/tags/themes/">Themes</a>
-              <a class="tag" href="https://yunru-volknet.github.io/tags/development/">Development</a>
-        </div>
-      </div>
-    </header>
-    <div class="post-content">
-      <p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
+<!doctype html><html lang=zh-CN data-ui-theme=tactical><head><title>(Hu)go Template Primer // YUNRU // FOEHN ARCHIVE</title>
+<link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.128.2"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#050a0f"><meta name=author content="yunru"><meta name=description content><script>(function(){try{var e=localStorage.getItem("foehn-ui-theme");(e==="tactical"||e==="mecha")&&document.documentElement.setAttribute("data-ui-theme",e)}catch{}})()</script><link rel=stylesheet href=/css/main.min.4520a04de3f708131ed4dad7d0c6d957e12b4c777f013fe7c6fc36fa31311d1c.css><meta name=twitter:card content="summary"><meta name=twitter:title content="(Hu)go Template Primer"><meta name=twitter:description content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website."><meta property="og:url" content="https://yunru-volknet.github.io/posts/goisforlovers/"><meta property="og:site_name" content="YUNRU // FOEHN ARCHIVE"><meta property="og:title" content="(Hu)go Template Primer"><meta property="og:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2014-04-02T00:00:00+00:00"><meta property="article:modified_time" content="2014-04-02T00:00:00+00:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Golang"><meta property="article:tag" content="Templates"><meta property="article:tag" content="Themes"><meta property="article:tag" content="Development"></head><body><a class=skip-link href=#main-content>跳转到主要内容</a><div class=ambient-grid aria-hidden=true></div><div class=ambient-scanline aria-hidden=true></div><div class=mecha-frame aria-hidden=true><span class=mecha-frame-top></span>
+<span class=mecha-frame-right></span>
+<span class=mecha-frame-bottom></span>
+<span class=mecha-frame-left></span></div><header class=app-header><div class=sidebar-grid aria-hidden=true></div><div class=faction-id><span class=faction-id-mark></span>
+<span>FOEHN REVOLT</span>
+<span class=faction-id-code>FN-07</span></div><a class=app-header-emblem href=/ aria-label=返回档案终端><span class=emblem-orbit aria-hidden=true></span>
+<img class=app-header-avatar src=/avartar.jpg alt=焚风阵营标志></a><div class=brand-lockup><span class=app-header-title>YUNRU // FOEHN ARCHIVE</span>
+<span class=app-header-subtitle>MENTAL OMEGA / TACTICAL KNOWLEDGE NODE</span></div><nav class=app-header-menu aria-label=主导航><a class=app-header-menu-item href=/><span class=menu-index>01</span>
+<span>档案终端</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg>
+</a><a class=app-header-menu-item href=/tags/><span class=menu-index>02</span>
+<span>数据索引</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg>
+</a><a class=app-header-menu-item href=/about/><span class=menu-index>03</span>
+<span>节点信息</span><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><title>chevron-right</title><polyline points="9 18 15 12 9 6"/></svg></a></nav><div class=ui-selector><span class=ui-selector-label>INTERFACE LOADOUT / 界面方案</span><div class=ui-selector-options role=group aria-label=选择博客界面风格><button type=button data-theme-option=tactical aria-pressed=true>
+<span>01</span><strong>战术终端</strong>
+</button>
+<button type=button data-theme-option=mecha aria-pressed=false>
+<span>02</span><strong>焚风机甲</strong></button></div></div><p class=app-header-description>记录代码、密码学与链上攻防的焚风技术档案。</p><div class=app-header-social><a href=https://github.com/yunru-volknet target=_blank rel="noreferrer noopener me" aria-label="GitHub / yunru-volknet"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>GitHub / yunru-volknet</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+<span>GitHub / yunru-volknet</span></a></div><div class=sidebar-status aria-label=系统状态><div><span class=status-pulse></span> ARCHIVE NODE ONLINE</div><div><span>ENCRYPTION</span><strong>QUANTUM / ACTIVE</strong></div><div><span>ACCESS</span><strong>FIELD OPERATIVE</strong></div></div></header><div class=app-main><div class=command-bar><span class=command-route><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-terminal"><title>terminal</title><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> NODE://POSTS</span>
+<span class=command-interface>UI://<strong id=ui-mode-label>TACTICAL TERMINAL</strong></span>
+<span class=command-sync><span class=status-pulse></span> DATA LINK STABLE</span></div><main id=main-content class=app-container><article class=post><header class=post-header><a class=post-backlink href=/><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-arrow-left"><title>arrow-left</title><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> 返回档案终端</a>
+<span class=section-code>INTELLIGENCE RECORD / D565CC69</span><h1 class=post-title>(Hu)go Template Primer</h1><div class=post-meta><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+<span>记录日期</span><strong>2014.04.02</strong></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>预计读取</span><strong>7 MIN</strong></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+<a class=tag href=https://yunru-volknet.github.io/tags/go/>Go</a>
+<a class=tag href=https://yunru-volknet.github.io/tags/golang/>Golang</a>
+<a class=tag href=https://yunru-volknet.github.io/tags/templates/>Templates</a>
+<a class=tag href=https://yunru-volknet.github.io/tags/themes/>Themes</a>
+<a class=tag href=https://yunru-volknet.github.io/tags/development/>Development</a></div></div></header><div class=post-content><div class=content-clearance><span>SECURITY CLEARANCE</span><strong>AUTHORIZED</strong></div><p>Hugo uses the excellent <a href=https://golang.org/>Go</a> <a href=https://golang.org/pkg/html/template/>html/template</a> library for
 its template engine. It is an extremely lightweight engine that provides a very
 small amount of logic. In our experience that it is just the right amount of
 logic to be able to create a good static website. If you have used other
 template systems from different languages or frameworks you will find a lot of
-similarities in Go templates.</p>
-<p>This document is a brief primer on using Go templates. The <a href="https://golang.org/pkg/html/template/">Go docs</a>
-provide more details.</p>
-<h2 id="introduction-to-go-templates">Introduction to Go Templates</h2>
-<p>Go templates provide an extremely simple template language. It adheres to the
+similarities in Go templates.</p><p>This document is a brief primer on using Go templates. The <a href=https://golang.org/pkg/html/template/>Go docs</a>
+provide more details.</p><h2 id=introduction-to-go-templates>Introduction to Go Templates</h2><p>Go templates provide an extremely simple template language. It adheres to the
 belief that only the most basic of logic belongs in the template or view layer.
-One consequence of this simplicity is that Go templates parse very quickly.</p>
-<p>A unique characteristic of Go templates is they are content aware. Variables and
+One consequence of this simplicity is that Go templates parse very quickly.</p><p>A unique characteristic of Go templates is they are content aware. Variables and
 content will be sanitized depending on the context of where they are used. More
-details can be found in the <a href="https://golang.org/pkg/html/template/">Go docs</a>.</p>
-<h2 id="basic-syntax">Basic Syntax</h2>
-<p>Golang templates are HTML files with the addition of variables and
-functions.</p>
-<p><strong>Go variables and functions are accessible within {{ }}</strong></p>
-<p>Accessing a predefined variable &ldquo;foo&rdquo;:</p>
-<pre><code>{{ foo }}
-</code></pre>
-<p><strong>Parameters are separated using spaces</strong></p>
-<p>Calling the add function with input of 1, 2:</p>
-<pre><code>{{ add 1 2 }}
-</code></pre>
-<p><strong>Methods and fields are accessed via dot notation</strong></p>
-<p>Accessing the Page Parameter &ldquo;bar&rdquo;</p>
-<pre><code>{{ .Params.bar }}
-</code></pre>
-<p><strong>Parentheses can be used to group items together</strong></p>
-<pre><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
-</code></pre>
-<h2 id="variables">Variables</h2>
-<p>Each Go template has a struct (object) made available to it. In hugo each
+details can be found in the <a href=https://golang.org/pkg/html/template/>Go docs</a>.</p><h2 id=basic-syntax>Basic Syntax</h2><p>Golang templates are HTML files with the addition of variables and
+functions.</p><p><strong>Go variables and functions are accessible within {{ }}</strong></p><p>Accessing a predefined variable &ldquo;foo&rdquo;:</p><pre><code>{{ foo }}
+</code></pre><p><strong>Parameters are separated using spaces</strong></p><p>Calling the add function with input of 1, 2:</p><pre><code>{{ add 1 2 }}
+</code></pre><p><strong>Methods and fields are accessed via dot notation</strong></p><p>Accessing the Page Parameter &ldquo;bar&rdquo;</p><pre><code>{{ .Params.bar }}
+</code></pre><p><strong>Parentheses can be used to group items together</strong></p><pre><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
+</code></pre><h2 id=variables>Variables</h2><p>Each Go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-<a href="/layout/variables">variables</a> page.</p>
-<p>A variable is accessed by referencing the variable name.</p>
-<pre><code>&lt;title&gt;{{ .Title }}&lt;/title&gt;
-</code></pre>
-<p>Variables can also be defined and referenced.</p>
-<pre><code>{{ $address := &quot;123 Main St.&quot;}}
+<a href=/layout/variables>variables</a> page.</p><p>A variable is accessed by referencing the variable name.</p><pre><code>&lt;title&gt;{{ .Title }}&lt;/title&gt;
+</code></pre><p>Variables can also be defined and referenced.</p><pre><code>{{ $address := &quot;123 Main St.&quot;}}
 {{ $address }}
-</code></pre>
-<h2 id="functions">Functions</h2>
-<p>Go template ship with a few functions which provide basic functionality. The Go
+</code></pre><h2 id=functions>Functions</h2><p>Go template ship with a few functions which provide basic functionality. The Go
 template system also provides a mechanism for applications to extend the
-available functions with their own. <a href="/layout/functions">Hugo template
+available functions with their own. <a href=/layout/functions>Hugo template
 functions</a> provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
-functions cannot be added without recompiling hugo.</p>
-<p><strong>Example:</strong></p>
-<pre><code>{{ add 1 2 }}
-</code></pre>
-<h2 id="includes">Includes</h2>
-<p>When including another template you will pass to it the data it will be
+functions cannot be added without recompiling hugo.</p><p><strong>Example:</strong></p><pre><code>{{ add 1 2 }}
+</code></pre><h2 id=includes>Includes</h2><p>When including another template you will pass to it the data it will be
 able to access. To pass along the current context please remember to
 include a trailing dot. The templates location will always be starting at
-the /layout/ directory within Hugo.</p>
-<p><strong>Example:</strong></p>
-<pre><code>{{ template &quot;chrome/header.html&quot; . }}
-</code></pre>
-<h2 id="logic">Logic</h2>
-<p>Go templates provide the most basic iteration and conditional logic.</p>
-<h3 id="iteration">Iteration</h3>
-<p>Just like in Go, the Go templates make heavy use of range to iterate over
+the /layout/ directory within Hugo.</p><p><strong>Example:</strong></p><pre><code>{{ template &quot;chrome/header.html&quot; . }}
+</code></pre><h2 id=logic>Logic</h2><p>Go templates provide the most basic iteration and conditional logic.</p><h3 id=iteration>Iteration</h3><p>Just like in Go, the Go templates make heavy use of range to iterate over
 a map, array or slice. The following are different examples of how to use
-range.</p>
-<p><strong>Example 1: Using Context</strong></p>
-<pre><code>{{ range array }}
+range.</p><p><strong>Example 1: Using Context</strong></p><pre><code>{{ range array }}
     {{ . }}
 {{ end }}
-</code></pre>
-<p><strong>Example 2: Declaring value variable name</strong></p>
-<pre><code>{{range $element := array}}
+</code></pre><p><strong>Example 2: Declaring value variable name</strong></p><pre><code>{{range $element := array}}
     {{ $element }}
 {{ end }}
-</code></pre>
-<p><strong>Example 2: Declaring key and value variable name</strong></p>
-<pre><code>{{range $index, $element := array}}
+</code></pre><p><strong>Example 2: Declaring key and value variable name</strong></p><pre><code>{{range $index, $element := array}}
     {{ $index }}
     {{ $element }}
 {{ end }}
-</code></pre>
-<h3 id="conditionals">Conditionals</h3>
-<p>If, else, with, or, &amp; and provide the framework for handling conditional
-logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p>
-<p>Go Templates treat the following values as false:</p>
-<ul>
-<li>false</li>
-<li>0</li>
-<li>any array, slice, map, or string of length zero</li>
-</ul>
-<p><strong>Example 1: If</strong></p>
-<pre><code>{{ if isset .Params &quot;title&quot; }}&lt;h4&gt;{{ index .Params &quot;title&quot; }}&lt;/h4&gt;{{ end }}
-</code></pre>
-<p><strong>Example 2: If -&gt; Else</strong></p>
-<pre><code>{{ if isset .Params &quot;alt&quot; }}
+</code></pre><h3 id=conditionals>Conditionals</h3><p>If, else, with, or, & and provide the framework for handling conditional
+logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p><p>Go Templates treat the following values as false:</p><ul><li>false</li><li>0</li><li>any array, slice, map, or string of length zero</li></ul><p><strong>Example 1: If</strong></p><pre><code>{{ if isset .Params &quot;title&quot; }}&lt;h4&gt;{{ index .Params &quot;title&quot; }}&lt;/h4&gt;{{ end }}
+</code></pre><p><strong>Example 2: If -> Else</strong></p><pre><code>{{ if isset .Params &quot;alt&quot; }}
     {{ index .Params &quot;alt&quot; }}
 {{else}}
     {{ index .Params &quot;caption&quot; }}
 {{ end }}
-</code></pre>
-<p><strong>Example 3: And &amp; Or</strong></p>
-<pre><code>{{ if and (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
-</code></pre>
-<p><strong>Example 4: With</strong></p>
-<p>An alternative way of writing &ldquo;if&rdquo; and then referencing the same value
+</code></pre><p><strong>Example 3: And & Or</strong></p><pre><code>{{ if and (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
+</code></pre><p><strong>Example 4: With</strong></p><p>An alternative way of writing &ldquo;if&rdquo; and then referencing the same value
 is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
-and skips the block if the variable is absent.</p>
-<p>The first example above could be simplified as:</p>
-<pre><code>{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}
-</code></pre>
-<p><strong>Example 5: If -&gt; Else If</strong></p>
-<pre><code>{{ if isset .Params &quot;alt&quot; }}
+and skips the block if the variable is absent.</p><p>The first example above could be simplified as:</p><pre><code>{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}
+</code></pre><p><strong>Example 5: If -> Else If</strong></p><pre><code>{{ if isset .Params &quot;alt&quot; }}
     {{ index .Params &quot;alt&quot; }}
 {{ else if isset .Params &quot;caption&quot; }}
     {{ index .Params &quot;caption&quot; }}
 {{ end }}
-</code></pre>
-<h2 id="pipes">Pipes</h2>
-<p>One of the most powerful components of Go templates is the ability to
+</code></pre><h2 id=pipes>Pipes</h2><p>One of the most powerful components of Go templates is the ability to
 stack actions one after another. This is done by using pipes. Borrowed
 from unix pipes, the concept is simple, each pipeline&rsquo;s output becomes the
-input of the following pipe.</p>
-<p>Because of the very simple syntax of Go templates, the pipe is essential
+input of the following pipe.</p><p>Because of the very simple syntax of Go templates, the pipe is essential
 to being able to chain together function calls. One limitation of the
 pipes is that they only can work with a single value and that value
-becomes the last parameter of the next pipeline.</p>
-<p>A few simple examples should help convey how to use the pipe.</p>
-<p><strong>Example 1 :</strong></p>
-<pre><code>{{ if eq 1 1 }} Same {{ end }}
-</code></pre>
-<p>is the same as</p>
-<pre><code>{{ eq 1 1 | if }} Same {{ end }}
-</code></pre>
-<p>It does look odd to place the if at the end, but it does provide a good
-illustration of how to use the pipes.</p>
-<p><strong>Example 2 :</strong></p>
-<pre><code>{{ index .Params &quot;disqus_url&quot; | html }}
-</code></pre>
-<p>Access the page parameter called &ldquo;disqus_url&rdquo; and escape the HTML.</p>
-<p><strong>Example 3 :</strong></p>
-<pre><code>{{ if or (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
+becomes the last parameter of the next pipeline.</p><p>A few simple examples should help convey how to use the pipe.</p><p><strong>Example 1 :</strong></p><pre><code>{{ if eq 1 1 }} Same {{ end }}
+</code></pre><p>is the same as</p><pre><code>{{ eq 1 1 | if }} Same {{ end }}
+</code></pre><p>It does look odd to place the if at the end, but it does provide a good
+illustration of how to use the pipes.</p><p><strong>Example 2 :</strong></p><pre><code>{{ index .Params &quot;disqus_url&quot; | html }}
+</code></pre><p>Access the page parameter called &ldquo;disqus_url&rdquo; and escape the HTML.</p><p><strong>Example 3 :</strong></p><pre><code>{{ if or (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
 Stuff Here
 {{ end }}
-</code></pre>
-<p>Could be rewritten as</p>
-<pre><code>{{  isset .Params &quot;caption&quot; | or isset .Params &quot;title&quot; | or isset .Params &quot;attr&quot; | if }}
+</code></pre><p>Could be rewritten as</p><pre><code>{{  isset .Params &quot;caption&quot; | or isset .Params &quot;title&quot; | or isset .Params &quot;attr&quot; | if }}
 Stuff Here
 {{ end }}
-</code></pre>
-<h2 id="context-aka-the-dot">Context (aka. the dot)</h2>
-<p>The most easily overlooked concept to understand about Go templates is that {{ . }}
+</code></pre><h2 id=context-aka-the-dot>Context (aka. the dot)</h2><p>The most easily overlooked concept to understand about Go templates is that {{ . }}
 always refers to the current context. In the top level of your template this
 will be the data set made available to it. Inside of a iteration it will have
 the value of the current item. When inside of a loop the context has changed. .
 will no longer refer to the data available to the entire page. If you need to
 access this from within the loop you will likely want to set it to a variable
-instead of depending on the context.</p>
-<p><strong>Example:</strong></p>
-<pre><code>  {{ $title := .Site.Title }}
+instead of depending on the context.</p><p><strong>Example:</strong></p><pre><code>  {{ $title := .Site.Title }}
   {{ range .Params.tags }}
     &lt;li&gt; &lt;a href=&quot;{{ $baseurl }}/tags/{{ . | urlize }}&quot;&gt;{{ . }}&lt;/a&gt; - {{ $title }} &lt;/li&gt;
   {{ end }}
-</code></pre>
-<p>Notice how once we have entered the loop the value of {{ . }} has changed. We
+</code></pre><p>Notice how once we have entered the loop the value of {{ . }} has changed. We
 have defined a variable outside of the loop so we have access to it from within
-the loop.</p>
-<h1 id="hugo-parameters">Hugo Parameters</h1>
-<p>Hugo provides the option of passing values to the template language
+the loop.</p><h1 id=hugo-parameters>Hugo Parameters</h1><p>Hugo provides the option of passing values to the template language
 through the site configuration (for sitewide values), or through the meta
 data of each specific piece of content. You can define any values of any
 type (supported by your front matter/config format) and use them however
-you want to inside of your templates.</p>
-<h2 id="using-content-page-parameters">Using Content (page) Parameters</h2>
-<p>In each piece of content you can provide variables to be used by the
-templates. This happens in the <a href="/content/front-matter">front matter</a>.</p>
-<p>An example of this is used in this documentation site. Most of the pages
+you want to inside of your templates.</p><h2 id=using-content-page-parameters>Using Content (page) Parameters</h2><p>In each piece of content you can provide variables to be used by the
+templates. This happens in the <a href=/content/front-matter>front matter</a>.</p><p>An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just
 doesn&rsquo;t make a lot of sense. We&rsquo;ve defined a variable in our front matter
-of some pages to turn off the TOC from being displayed.</p>
-<p>Here is the example front matter:</p>
-<pre tabindex="0"><code>---
+of some pages to turn off the TOC from being displayed.</p><p>Here is the example front matter:</p><pre tabindex=0><code>---
 title: &#34;Permalinks&#34;
 date: &#34;2013-11-18&#34;
 aliases:
@@ -299,52 +133,36 @@ groups: [&#34;extras&#34;]
 groups_weight: 30
 notoc: true
 ---
-</code></pre><p>Here is the corresponding code inside of the template:</p>
-<pre><code>  {{ if not .Params.notoc }}
+</code></pre><p>Here is the corresponding code inside of the template:</p><pre><code>  {{ if not .Params.notoc }}
     &lt;div id=&quot;toc&quot; class=&quot;well col-md-4 col-sm-6&quot;&gt;
     {{ .TableOfContents }}
     &lt;/div&gt;
   {{ end }}
-</code></pre>
-<h2 id="using-site-config-parameters">Using Site (config) Parameters</h2>
-<p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
-parameters, which are values which will be available to you in chrome.</p>
-<p>For instance, you might declare:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">params</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
-</span></span></code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
+</code></pre><h2 id=using-site-config-parameters>Using Site (config) Parameters</h2><p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
+parameters, which are values which will be available to you in chrome.</p><p>For instance, you might declare:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>params</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>CopyrightHTML</span>: <span style=color:#e6db74>&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>TwitterUser</span>: <span style=color:#e6db74>&#34;spf13&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>SidebarRecentLimit</span>: <span style=color:#ae81ff>5</span>
+</span></span></code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer></code> which is only
 provided if the <code>CopyrightHTML</code> parameter is provided, and if it is given,
 you would declare it to be HTML-safe, so that the HTML entity is not escaped
-again.  This would let you easily update just your top-level config file each
-January 1st, instead of hunting through your templates.</p>
-<pre tabindex="0"><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
+again. This would let you easily update just your top-level config file each
+January 1st, instead of hunting through your templates.</p><pre tabindex=0><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
 &lt;div class=&#34;text-center&#34;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
 &lt;/footer&gt;{{end}}
 </code></pre><p>An alternative way of writing the &ldquo;if&rdquo; and then referencing the same value
 is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
-and skips the block if the variable is absent:</p>
-<pre tabindex="0"><code>{{with .Site.Params.TwitterUser}}&lt;span class=&#34;twitter&#34;&gt;
+and skips the block if the variable is absent:</p><pre tabindex=0><code>{{with .Site.Params.TwitterUser}}&lt;span class=&#34;twitter&#34;&gt;
 &lt;a href=&#34;https://twitter.com/{{.}}&#34; rel=&#34;author&#34;&gt;
 &lt;img src=&#34;/images/twitter.png&#34; width=&#34;48&#34; height=&#34;48&#34; title=&#34;Twitter: {{.}}&#34;
  alt=&#34;Twitter&#34;&gt;&lt;/a&gt;
 &lt;/span&gt;{{end}}
 </code></pre><p>Finally, if you want to pull &ldquo;magic constants&rdquo; out of your layouts, you can do
-so, such as in this example:</p>
-<pre tabindex="0"><code>&lt;nav class=&#34;recent&#34;&gt;
+so, such as in this example:</p><pre tabindex=0><code>&lt;nav class=&#34;recent&#34;&gt;
   &lt;h1&gt;Recent Posts&lt;/h1&gt;
   &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
     &lt;li&gt;&lt;a href=&#34;{{.RelPermalink}}&#34;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
   {{end}}&lt;/ul&gt;
 &lt;/nav&gt;
-</code></pre>
-    </div>
-    <div class="post-footer">
-      
-    </div>
-  </article>
-
-    </main>
-  </body>
-</html>
+</code></pre></div><div class=post-footer></div></article></main><footer class=app-footer><span>FOEHN ARCHIVE SYSTEM</span>
+<span>© 2026 YUNRU / ALL SIGNALS RECORDED</span></footer></div><script>(function(){var e=document.documentElement,t=document.querySelectorAll("[data-theme-option]"),n=document.getElementById("ui-mode-label");function s(s,o){var i=s==="mecha"?"mecha":"tactical";if(e.setAttribute("data-ui-theme",i),t.forEach(function(e){e.setAttribute("aria-pressed",String(e.getAttribute("data-theme-option")===i))}),n&&(n.textContent=i==="mecha"?"FOEHN MECHA":"TACTICAL TERMINAL"),o)try{localStorage.setItem("foehn-ui-theme",i)}catch{}}t.forEach(function(e){e.addEventListener("click",function(){s(e.getAttribute("data-theme-option"),!0)})}),s(e.getAttribute("data-ui-theme"),!1)})()</script></body></html>
